@@ -1,16 +1,12 @@
-# React + Vite
+# Rock & Roll Hall of Fame Inductee Trivia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A trivia game that quizzes you about the Rock & Roll Hall of Fame inductees from over the years. It
+includes artists from the first year of inductions in 1986, all the way to the most recent class of
+2025.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Built with React + Vite, I wanted to create a fun project to learn the framework and it's concepts:
+- Handling state with `useState`
+- Props and how they are passed around the app
+- Event handling and how to connect user interactions
+- Conditional rendering based on state or props
+- Lists & keys for rendering arrays of data with `.map()`
