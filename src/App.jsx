@@ -3,7 +3,7 @@ import inductees from './data/inductees.json'
 import './App.css'
 
 function App() {
-  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const [currentQuestion, setCurrentQuestion] = useState(() => generateQuestion(inductees));
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [askedInductees, setAskedInductees] = useState([]);
   const [correctAnswers, setCorrectAnswers] = useState(0);
