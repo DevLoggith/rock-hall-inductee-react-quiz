@@ -1,8 +1,13 @@
+import { useState } from 'react'
+import AnswerButton from './AnswerButton.jsx'
+
 function QuestionCard({ question }) {
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+
     const answerButtons = question.answers.map((answer) => {
         return(
             <li key={answer}>
-                <button>{answer}</button>
+                <AnswerButton value={answer} />
             </li>
         )
     });
