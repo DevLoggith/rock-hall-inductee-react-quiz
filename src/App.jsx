@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import inductees from './data/inductees.json'
+import QuestionCard from './components/QuestionCard.jsx'
 import './App.css'
 
-function App() {
+function Game() {
   const [currentQuestion, setCurrentQuestion] = useState(() => generateQuestion(inductees));
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [askedInductees, setAskedInductees] = useState([]);
@@ -10,8 +11,11 @@ function App() {
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
 
   return (
-    <>
-    </>
+    <main>
+      <h1>Rock & Roll Hall of Fame Inductee Trivia</h1>
+      <p>Question n of n</p>
+      <QuestionCard question={currentQuestion} />
+    </main>
   )
 }
 
@@ -32,6 +36,8 @@ function generateQuestion(inducteeArray) {
   }
   const shuffledAnswers = shuffleArray(answers);
 
+  // TODO: add inductee to askedInductee 
+
   return {
     inductee: inductee,
     answers: shuffledAnswers,
@@ -50,4 +56,4 @@ function shuffleArray(arr) {
   return shuffledArray;
 }
 
-export default App
+export default Game
