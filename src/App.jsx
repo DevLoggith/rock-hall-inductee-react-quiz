@@ -5,10 +5,14 @@ import './App.css'
 
 function Game() {
   const [currentQuestion, setCurrentQuestion] = useState(() => generateQuestion(inductees));
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  // TODO: set initial askedInductees state to `currentQuestion.inductee.name
   const [askedInductees, setAskedInductees] = useState([]);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  // TODO: remove questionsAnswered state with variable:
+  // const questionsAnswered = askedInductees.length;
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
+  // TODO: create isGameOver & TOTAL_QUESTIONS variables with:
+  // const isGameOver = questionsAnswered === TOTAL_QUESTIONS;
 
   return (
     <main>
@@ -19,7 +23,9 @@ function Game() {
   )
 }
 
+// TODO: move functions to a utils directory
 function generateQuestion(inducteeArray) {
+  // TODO: pick only from inductees that are not also present in askedInductees
   const randomIndex = Math.floor(Math.random() * inducteeArray.length);
   const inductee = inducteeArray[randomIndex];
   const answers = [inductee.inductionYear];
