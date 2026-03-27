@@ -5,14 +5,16 @@ import './App.css'
 
 function Game() {
   const [currentQuestion, setCurrentQuestion] = useState(() => generateQuestion(inductees));
-  // TODO: set initial askedInductees state to `currentQuestion.inductee.name
-  const [askedInductees, setAskedInductees] = useState([]);
+  const [askedInductees, setAskedInductees] = useState([currentQuestion.inductee.name]);
   const [correctAnswers, setCorrectAnswers] = useState(0);
-  // TODO: remove questionsAnswered state with variable:
-  // const questionsAnswered = askedInductees.length;
-  const [questionsAnswered, setQuestionsAnswered] = useState(0);
-  // TODO: create isGameOver & TOTAL_QUESTIONS variables with:
-  // const isGameOver = questionsAnswered === TOTAL_QUESTIONS;
+
+  const TOTAL_QUESTIONS = 5;
+  const questionsAnswered = askedInductees.length;
+  const isGameOver = questionsAnswered === TOTAL_QUESTIONS;
+
+  // TODO: create "next question" button onClick callback and setCurrentQuestion & setAskedInductees
+  // setCurrentQuestion(generateQuestion());
+  // setAskedInductees(prev => [...prev, currentQuestion.inductee.name]);
 
   return (
     <main>
@@ -23,8 +25,7 @@ function Game() {
   )
 }
 
-// TODO: move functions to a utils directory
-function generateQuestion(inducteeArray) {
+function generateQuestion(inducteeArray, askedInducteeArray) {
   // TODO: pick only from inductees that are not also present in askedInductees
   const randomIndex = Math.floor(Math.random() * inducteeArray.length);
   const inductee = inducteeArray[randomIndex];
@@ -32,7 +33,6 @@ function generateQuestion(inducteeArray) {
   const min = Math.max((answers[0] - 10), 1986);
   const max = Math.min((answers[0] + 10), 2025);
   
-
   for (let i = 1; i < 4; i++) {
     let randomYear;
     while(answers.includes(randomYear) || randomYear === undefined) {
@@ -41,8 +41,6 @@ function generateQuestion(inducteeArray) {
     answers.push(randomYear);
   }
   const shuffledAnswers = shuffleArray(answers);
-
-  // TODO: add inductee to askedInductee 
 
   return {
     inductee: inductee,
