@@ -4,6 +4,15 @@ import AnswerButton from './AnswerButton.jsx'
 function QuestionCard({ question }) {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
 
+    // TODO: create selected answer button onClick callback setSelectedAnswer
+    // check if selectedAnswer === currentQuestion.correctAnswer
+        // if yes, style green & display:
+            // "That's correct!"
+            // "{artist} was inducted in {year} by {presenter}"
+        // if no style red & display:
+            // "Sorry, that's incorrect"
+            // "{artist} was inducted in {year} by {presenter}"
+
     const answerButtons = question.answers.map((answer) => {
         return(
             <li key={answer}>
