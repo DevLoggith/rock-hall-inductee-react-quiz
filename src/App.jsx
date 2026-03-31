@@ -16,9 +16,13 @@ function Game() {
   // setCurrentQuestion(generateQuestion());
   // setAskedInductees(prev => [...prev, currentQuestion.inductee.name]);
 
+  // TODO: create conditional that checks isGameOver & conditionally renders the question card or 
+  // the game over screen
+
   return (
     <main>
       <h1>Rock & Roll Hall of Fame Inductee Trivia</h1>
+      {/* TODO: inject questionsAnswered & TOTAL_QUESTIONS into <p> element */}
       <p>Question n of n</p>
       <QuestionCard question={currentQuestion} />
     </main>

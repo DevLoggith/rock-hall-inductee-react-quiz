@@ -1,0 +1,11 @@
+.answer-button {
+    /* TODO: define default button styles */
+}
+
+.answer-button.correct {
+    background-color: #9EFD62;
+}
+
+.answer-button.incorrect {
+    background-color: #FF4545;
+}
