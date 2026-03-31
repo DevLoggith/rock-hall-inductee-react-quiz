@@ -3,23 +3,41 @@ import AnswerButton from './AnswerButton.jsx'
 
 function QuestionCard({ question }) {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
+    
+    function handleSelect(answer) {
+        setSelectedAnswer(answer);
+    }
 
-    // TODO: create selected answer button onClick callback setSelectedAnswer
-    // check if selectedAnswer === currentQuestion.correctAnswer
+    const answerButtons = question.answers.map((answer) => {
+        function conditionalStyling() {
+            if (answer === question.correctAnswer) {
+                return 'correct';
+            }
+            if (answer === selectedAnswer && answer !== question.correctAnswer) {
+                return 'incorrect';
+            }
+            return '';
+        }
+
+        return(
+            <li key={answer}>
+                <AnswerButton 
+                    className={selectedAnswer ? conditionalStyling() : ''}
+                    value={answer} 
+                    onAnswerSelect={() => handleSelect(answer)}
+                    disabled={selectedAnswer ? true : false}
+                />
+            </li>
+        )
+    });
+
+    // TODO: conditionally render text based on answer:
         // if yes, style green & display:
             // "That's correct!"
             // "{artist} was inducted in {year} by {presenter}"
         // if no style red & display:
             // "Sorry, that's incorrect"
             // "{artist} was inducted in {year} by {presenter}"
-
-    const answerButtons = question.answers.map((answer) => {
-        return(
-            <li key={answer}>
-                <AnswerButton value={answer} />
-            </li>
-        )
-    });
 
     return(
         <article>
