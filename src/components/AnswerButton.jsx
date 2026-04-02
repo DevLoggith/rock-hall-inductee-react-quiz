@@ -1,7 +1,12 @@
 // TODO: define styles & state for answer buttons
-function AnswerButton({ value }) {
+function AnswerButton({ value, onAnswerSelect, className, disabled }) {
     return(
-        <button>{value}</button>
+        <button 
+            className={`answer-button ${className}`} 
+            onClick={onAnswerSelect} 
+            disabled={disabled}
+                >{value}
+        </button>
     );
 }
 
