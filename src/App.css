@@ -1,11 +1,79 @@
+/* ── Layout ── */
+body {
+    background-color: #f0f0f0;
+}
+
+main {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem 2rem;
+    gap: 1rem;
+}
+
+/* ── Title ── */
+main > h1 {
+    text-align: center;
+    max-width: 320px;
+}
+
+/* ── "Question n of n" ── */
+main > p {
+    margin-bottom: 0.5rem;
+}
+
+/* ── Question Card ── */
+article {
+    background-color: #e0e0e0;
+    border-radius: 1rem;
+    padding: 1.75rem 1.25rem;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+article > h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* ── Answer Button Grid ── */
+article > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+/* ── Answer Buttons ── */
 .answer-button {
-    /* TODO: define default button styles */
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.95rem;
+    /* TODO: update button colors */
+    border: 1.5px solid #555;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.answer-button:hover:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+.answer-button:disabled {
+    cursor: default;
 }
 
 .answer-button.correct {
     background-color: #9EFD62;
+    border-color: #5cb82e;
 }
 
 .answer-button.incorrect {
     background-color: #FF4545;
+    border-color: #cc1f1f;
 }
