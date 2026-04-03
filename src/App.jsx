@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import inductees from './data/inductees.json'
 import QuestionCard from './components/QuestionCard.jsx'
+import NextButton from './components/NextButton.jsx'
 import './App.css'
 
 function Game() {
@@ -24,6 +25,10 @@ function Game() {
   // TODO: create "next question" button onClick callback and setCurrentQuestion & setAskedInductees
   // setCurrentQuestion(generateQuestion());
   // setAskedInductees(prev => [...prev, currentQuestion.inductee.name]);
+  function handleNext() {
+    setCurrentQuestion(generateQuestion(inductees));
+    setAskedInductees(prev => [...prev, currentQuestion.inductee.name]);
+  }
 
   // TODO: create conditional that checks isGameOver & conditionally renders the question card or 
   // the game over screen
@@ -42,6 +47,7 @@ function Game() {
     </main>
   )
 }
+
 
 function generateQuestion(inducteeArray, askedInducteeArray) {
   // TODO: pick only from inductees that are not also present in askedInductees
