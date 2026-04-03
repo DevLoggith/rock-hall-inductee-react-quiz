@@ -7,13 +7,18 @@ function Game() {
   const [currentQuestion, setCurrentQuestion] = useState(() => generateQuestion(inductees));
   const [askedInductees, setAskedInductees] = useState([currentQuestion.inductee.name]);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   const TOTAL_QUESTIONS = 5;
   const questionsAnswered = askedInductees.length;
   const isGameOver = questionsAnswered === TOTAL_QUESTIONS;
 
-  function handleAnswer() {
+  function handleCorrectAnswer() {
     setCorrectAnswers(correctAnswers + 1);
+  }
+
+  function onAnswerSelected(answer) {
+    setSelectedAnswer(answer);
   }
 
   // TODO: create "next question" button onClick callback and setCurrentQuestion & setAskedInductees
@@ -26,9 +31,14 @@ function Game() {
   return (
     <main>
       <h1>Rock & Roll Hall of Fame Inductee Trivia</h1>
-      {/* TODO: inject questionsAnswered & TOTAL_QUESTIONS into <p> element */}
-      <p>Question n of n</p>
-      <QuestionCard question={currentQuestion} correctAnswer={() => handleAnswer()} />
+      <p>Question {questionsAnswered} of {TOTAL_QUESTIONS}</p>
+      <QuestionCard
+        question={currentQuestion}
+        selectedAnswer={selectedAnswer}
+        selectAnswer={(answer) => onAnswerSelected(answer)}
+        correctAnswer={() => handleCorrectAnswer()}
+      />
+        <NextButton onNextSelect={() => handleNext()} />
     </main>
   )
 }
