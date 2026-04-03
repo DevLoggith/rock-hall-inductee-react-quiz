@@ -12,6 +12,10 @@ function Game() {
   const questionsAnswered = askedInductees.length;
   const isGameOver = questionsAnswered === TOTAL_QUESTIONS;
 
+  function handleAnswer() {
+    setCorrectAnswers(correctAnswers + 1);
+  }
+
   // TODO: create "next question" button onClick callback and setCurrentQuestion & setAskedInductees
   // setCurrentQuestion(generateQuestion());
   // setAskedInductees(prev => [...prev, currentQuestion.inductee.name]);
@@ -24,7 +28,7 @@ function Game() {
       <h1>Rock & Roll Hall of Fame Inductee Trivia</h1>
       {/* TODO: inject questionsAnswered & TOTAL_QUESTIONS into <p> element */}
       <p>Question n of n</p>
-      <QuestionCard question={currentQuestion} />
+      <QuestionCard question={currentQuestion} correctAnswer={() => handleAnswer()} />
     </main>
   )
 }
