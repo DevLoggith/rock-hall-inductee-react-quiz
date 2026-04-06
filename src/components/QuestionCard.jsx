@@ -1,11 +1,10 @@
-import { useState } from 'react'
 import AnswerButton from './AnswerButton.jsx'
 
-function QuestionCard({ question }) {
-    const [selectedAnswer, setSelectedAnswer] = useState(null);
+function QuestionCard({ question, selectedAnswer, selectAnswer, correctAnswer }) {
     
     function handleSelect(answer) {
-        setSelectedAnswer(answer);
+        selectAnswer(answer);
+        if (answer === question.correctAnswer) correctAnswer();
     }
 
     const answerButtons = question.answers.map((answer) => {

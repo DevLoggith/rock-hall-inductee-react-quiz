@@ -1,20 +1,33 @@
 import { useState } from 'react'
 import inductees from './data/inductees.json'
 import QuestionCard from './components/QuestionCard.jsx'
+import NextButton from './components/NextButton.jsx'
 import './App.css'
 
 function Game() {
   const [currentQuestion, setCurrentQuestion] = useState(() => generateQuestion(inductees));
   const [askedInductees, setAskedInductees] = useState([currentQuestion.inductee.name]);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   const TOTAL_QUESTIONS = 5;
   const questionsAnswered = askedInductees.length;
   const isGameOver = questionsAnswered === TOTAL_QUESTIONS;
 
-  // TODO: create "next question" button onClick callback and setCurrentQuestion & setAskedInductees
-  // setCurrentQuestion(generateQuestion());
-  // setAskedInductees(prev => [...prev, currentQuestion.inductee.name]);
+  function handleCorrectAnswer() {
+    setCorrectAnswers(correctAnswers + 1);
+  }
+
+  function onAnswerSelected(answer) {
+    setSelectedAnswer(answer);
+  }
+
+  function handleNext() {
+    const question = generateQuestion(inductees, askedInductees);
+    setCurrentQuestion(question);
+    setAskedInductees(prev => [...prev, question.inductee.name]);
+    setSelectedAnswer(null);
+  }
 
   // TODO: create conditional that checks isGameOver & conditionally renders the question card or 
   // the game over screen
@@ -22,12 +35,18 @@ function Game() {
   return (
     <main>
       <h1>Rock & Roll Hall of Fame Inductee Trivia</h1>
-      {/* TODO: inject questionsAnswered & TOTAL_QUESTIONS into <p> element */}
-      <p>Question n of n</p>
-      <QuestionCard question={currentQuestion} />
+      <p>Question {questionsAnswered} of {TOTAL_QUESTIONS}</p>
+      <QuestionCard
+        question={currentQuestion}
+        selectedAnswer={selectedAnswer}
+        selectAnswer={(answer) => onAnswerSelected(answer)}
+        correctAnswer={() => handleCorrectAnswer()}
+      />
+      {selectedAnswer && !isGameOver ? <NextButton onNextSelect={() => handleNext()} /> : null}
     </main>
   )
 }
+
 
 function generateQuestion(inducteeArray, askedInducteeArray) {
   // TODO: pick only from inductees that are not also present in askedInductees
