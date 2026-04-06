@@ -1,4 +1,3 @@
-// TODO: define styles & state for answer buttons
 function AnswerButton({ value, onAnswerSelect, className, disabled }) {
     return(
         <button 

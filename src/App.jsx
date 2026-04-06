@@ -22,12 +22,11 @@ function Game() {
     setSelectedAnswer(answer);
   }
 
-  // TODO: create "next question" button onClick callback and setCurrentQuestion & setAskedInductees
-  // setCurrentQuestion(generateQuestion());
-  // setAskedInductees(prev => [...prev, currentQuestion.inductee.name]);
   function handleNext() {
-    setCurrentQuestion(generateQuestion(inductees));
-    setAskedInductees(prev => [...prev, currentQuestion.inductee.name]);
+    const question = generateQuestion(inductees, askedInductees);
+    setCurrentQuestion(question);
+    setAskedInductees(prev => [...prev, question.inductee.name]);
+    setSelectedAnswer(null);
   }
 
   // TODO: create conditional that checks isGameOver & conditionally renders the question card or 
@@ -43,7 +42,7 @@ function Game() {
         selectAnswer={(answer) => onAnswerSelected(answer)}
         correctAnswer={() => handleCorrectAnswer()}
       />
-        <NextButton onNextSelect={() => handleNext()} />
+      {selectedAnswer && !isGameOver ? <NextButton onNextSelect={() => handleNext()} /> : null}
     </main>
   )
 }
