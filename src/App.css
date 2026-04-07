@@ -19,6 +19,7 @@ main > .game-title {
     max-width: 320px;
     font-size: 2.5rem;
     font-family: 'Bebas Neue', sans-serif;
+    color: #ff4d4d;
 }
 
 /* ── "Question n of n" ── */
@@ -45,17 +46,17 @@ main > .progress-tracker {
 }
 
 .correct-response {
-    color: #9EFD62;
+    color: #00e5a0;
     font-size: 2rem;
 }
 
 .incorrect-response {
-    color: #FF4545;
+    color: #ff3864;
     font-size: 1.75rem;
 }
 
 .artist-name {
-    color: #ffff4b;
+    color: #ffa500;
 }
 
 .question-card > p {
@@ -86,33 +87,34 @@ main > .progress-tracker {
     width: 100%;
     padding: 0.75rem 0.5rem;
     font-size: 1.1rem;
+    font-weight: 600;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    background-color: #009dff;
+    background-color: #7b61ff;
     transition: background-color 0.25s ease;
 }
 
 .answer-button:hover:not(:disabled) {
-    background-color: rgba(0, 157, 255, 0.5);
+    background-color: rgba(123, 97, 255, 0.5);
 }
 
 .answer-button:disabled {
     cursor: default;
+    color: lightgrey;
 }
 
 .answer-button.correct {
-    background-color: #9EFD62;
-    border-color: #5cb82e;
+    background-color: #00e5a0;
+    color: grey;
 }
 
 .answer-button.incorrect {
-    background-color: #FF4545;
-    border-color: #cc1f1f;
+    background-color: #ff3864;
 }
 
-/* TODO: change color of "view score" button */
+/* TODO: change color of "view score" button for better signaling of "game over" */
 .next-button, .score-button, .play-button {
     max-width: 200px;
-    background-color: #ff47b6;
+    background-color: #ff6b35;
 }

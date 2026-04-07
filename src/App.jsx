@@ -48,7 +48,11 @@ function Game() {
 	if (showScore) {
 		// score results screen
 		const scorePercentage = (correctAnswers / TOTAL_QUESTIONS) * 100;
-		const gameScoreText = `You got ${correctAnswers} out of ${TOTAL_QUESTIONS} questions right`;
+		const gameScoreText = (
+			<>
+				You got <span className="artist-name">{correctAnswers} out of {TOTAL_QUESTIONS}</span> questions right
+			</>
+		);
 		let gameResponseMsg = "The Rock Hall's history runs deep, but now you know a little more of it.";
 
 		if (scorePercentage >= 80) {
