@@ -32,7 +32,9 @@ function QuestionCard({ question, selectedAnswer, selectAnswer, correctAnswer })
 	let headerText;
 	const responseText = (
 		<>
-			<span className="artist-name">{question.inductee.name}</span> was inducted in {question.correctAnswer} by <span className="artist-name">{question.inductee.inductionPresenter}</span>
+			<span className="artist-name">{question.inductee.name}</span> was inducted in{" "}
+			{question.correctAnswer} by{" "}
+			<span className="artist-name">{question.inductee.inductionPresenter}</span>
 		</>
 	);
 	const priorNoms = question.inductee.priorNominations;
@@ -41,8 +43,8 @@ function QuestionCard({ question, selectedAnswer, selectAnswer, correctAnswer })
 	if (selectedAnswer === null) {
 		headerText = (
 			<>
-				What year was <span className="artist-name">{question.inductee.name}</span>{" "}
-				inducted into the Rock & Roll Hall of Fame?
+				What year was <span className="artist-name">{question.inductee.name}</span> inducted
+				into the Rock & Roll Hall of Fame?
 			</>
 		);
 	} else if (selectedAnswer === question.correctAnswer) {
