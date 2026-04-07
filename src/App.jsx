@@ -50,17 +50,22 @@ function Game() {
 		const scorePercentage = (correctAnswers / TOTAL_QUESTIONS) * 100;
 		const gameScoreText = (
 			<>
-				You got <span className="artist-name">{correctAnswers} out of {TOTAL_QUESTIONS}</span> questions right
+				You got{" "}
+				<span className="artist-name">
+					{correctAnswers} out of {TOTAL_QUESTIONS}
+				</span>{" "}
+				questions right
 			</>
 		);
-		let gameResponseMsg = "The Rock Hall's history runs deep, but now you know a little more of it.";
+		let gameResponseMsg =
+			"The Rock Hall's history runs deep, but now you know a little more of it.";
 
 		if (scorePercentage >= 80) {
 			gameResponseMsg = "Front row knowledge! You've earned your place in the crowd.";
 		} else if (scorePercentage >= 60) {
 			gameResponseMsg = "You've got the foundation, just a few more deep cuts to learn.";
 		}
-		
+
 		return (
 			<main>
 				<h1 className="game-title">Rock & Roll Hall of Fame Inductee Trivia</h1>
@@ -86,11 +91,12 @@ function Game() {
 				{selectedAnswer && !isGameOver ? (
 					<NextButton onNextSelect={() => handleNext()} />
 				) : null}
-				{selectedAnswer != null && isGameOver ? <ViewScoreButton onResultsSelect={() => handleGameOver()} /> : null}
+				{selectedAnswer != null && isGameOver ? (
+					<ViewScoreButton onResultsSelect={() => handleGameOver()} />
+				) : null}
 			</main>
 		);
 	}
-	
 }
 
 function generateQuestion(inducteeArray) {
