@@ -1,6 +1,7 @@
 /* ── Layout ── */
 body {
-    background-color: #f0f0f0;
+    background-color: #0c0c0c;
+    color: #F2F2F0;
     font-family: 'Barlow Condensed', sans-serif;
 }
 
@@ -27,9 +28,8 @@ main > .progress-tracker {
     padding: 0.25rem;
 }
 
-/* ── Question Card ── */
 .question-card {
-    background-color: #e0e0e0;
+    background-color: #303030;
     border-radius: 1rem;
     padding: 1.75rem 1.25rem;
     max-width: 380px;
@@ -75,25 +75,26 @@ main > .progress-tracker {
 .score-text {
     font-size: 1.5rem;
     font-weight: normal;
+    margin-top: 2rem;
 }
 
 .score-response {
     margin-bottom: 3rem;
 }
 
-/* ── Answer Buttons ── */
 .answer-button, .next-button, .score-button, .play-button {
     width: 100%;
     padding: 0.75rem 0.5rem;
     font-size: 1.1rem;
-    border: 1.5px solid #555;
+    border: none;
     border-radius: 0.5rem;
     cursor: pointer;
+    background-color: #009dff;
     transition: background-color 0.25s ease;
 }
 
 .answer-button:hover:not(:disabled) {
-    background-color: rgba(0, 0, 0, 0.07);
+    background-color: rgba(0, 157, 255, 0.5);
 }
 
 .answer-button:disabled {
@@ -110,6 +111,8 @@ main > .progress-tracker {
     border-color: #cc1f1f;
 }
 
+/* TODO: change color of "view score" button */
 .next-button, .score-button, .play-button {
     max-width: 200px;
+    background-color: #ff47b6;
 }
