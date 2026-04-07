@@ -59,7 +59,7 @@ function Game() {
 		
 		return (
 			<main>
-				<h1>Rock & Roll Hall of Fame Inductee Trivia</h1>
+				<h1 className="game-title">Rock & Roll Hall of Fame Inductee Trivia</h1>
 				<h2>{gameScoreText}</h2>
 				<p>{gameResponseMsg}</p>
 				<PlayAgainButton onPlayAgainSelect={() => handlePlayAgain()} />
@@ -69,7 +69,7 @@ function Game() {
 		// question card screen
 		return (
 			<main>
-				<h1>Rock & Roll Hall of Fame Inductee Trivia</h1>
+				<h1 className="game-title">Rock & Roll Hall of Fame Inductee Trivia</h1>
 				<p>
 					Question {questionsAnswered} of {TOTAL_QUESTIONS}
 				</p>
