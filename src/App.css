@@ -44,6 +44,20 @@ main > .progress-tracker {
     margin-bottom: 2rem;
 }
 
+.correct-response {
+    color: #9EFD62;
+    font-size: 2rem;
+}
+
+.incorrect-response {
+    color: #FF4545;
+    font-size: 1.75rem;
+}
+
+.artist-name {
+    color: #ffff4b;
+}
+
 .question-card > p {
     margin-bottom: 0.75rem;
 }
