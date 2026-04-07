@@ -48,7 +48,11 @@ function Game() {
 	if (showScore) {
 		// score results screen
 		const scorePercentage = (correctAnswers / TOTAL_QUESTIONS) * 100;
-		const gameScoreText = `You got ${correctAnswers} out of ${TOTAL_QUESTIONS} questions right`;
+		const gameScoreText = (
+			<>
+				You got <span className="artist-name">{correctAnswers} out of {TOTAL_QUESTIONS}</span> questions right
+			</>
+		);
 		let gameResponseMsg = "The Rock Hall's history runs deep, but now you know a little more of it.";
 
 		if (scorePercentage >= 80) {
@@ -59,9 +63,9 @@ function Game() {
 		
 		return (
 			<main>
-				<h1>Rock & Roll Hall of Fame Inductee Trivia</h1>
-				<h2>{gameScoreText}</h2>
-				<p>{gameResponseMsg}</p>
+				<h1 className="game-title">Rock & Roll Hall of Fame Inductee Trivia</h1>
+				<h2 className="score-text">{gameScoreText}</h2>
+				<p className="score-response">{gameResponseMsg}</p>
 				<PlayAgainButton onPlayAgainSelect={() => handlePlayAgain()} />
 			</main>
 		);
@@ -69,8 +73,8 @@ function Game() {
 		// question card screen
 		return (
 			<main>
-				<h1>Rock & Roll Hall of Fame Inductee Trivia</h1>
-				<p>
+				<h1 className="game-title">Rock & Roll Hall of Fame Inductee Trivia</h1>
+				<p className="progress-tracker">
 					Question {questionsAnswered} of {TOTAL_QUESTIONS}
 				</p>
 				<QuestionCard
