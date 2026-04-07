@@ -26,7 +26,7 @@ function Game() {
 	}
 
 	function handleNext() {
-		const question = generateQuestion(inductees, askedInductees);
+		const question = generateQuestion(inductees);
 		setCurrentQuestion(question);
 		setAskedInductees((prev) => [...prev, question.inductee.name]);
 		setSelectedAnswer(null);
@@ -91,6 +91,7 @@ function Game() {
 
 function generateQuestion(inducteeArray) {
 	// TODO: pick only from inductees that are not also present in askedInductees
+	// https://github.com/DevLoggith/rock-hall-inductee-react-quiz/issues/16
 	const randomIndex = Math.floor(Math.random() * inducteeArray.length);
 	const inductee = inducteeArray[randomIndex];
 	const answers = [inductee.inductionYear];

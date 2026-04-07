@@ -23,26 +23,22 @@ function QuestionCard({ question, selectedAnswer, selectAnswer, correctAnswer })
 					className={selectedAnswer ? conditionalStyling() : ""}
 					value={answer}
 					onAnswerSelect={() => handleSelect(answer)}
-					disabled={selectedAnswer ? true : false}
+					disabled={selectedAnswer !== null}
 				/>
 			</li>
 		);
 	});
 
 	let headerText;
-	let responseText = `${question.inductee.name} was inducted in ${question.correctAnswer} by ${question.inductee.inductionPresenter}`;
+	const responseText = `${question.inductee.name} was inducted in ${question.correctAnswer} by ${question.inductee.inductionPresenter}`;
 	const priorNoms = question.inductee.priorNominations;
 	const priorNomText = `Prior nominations were in ${priorNoms.length > 1 ? priorNoms.slice(0, -1).join(", ") + " and " + priorNoms.slice(-1) : priorNoms}`;
 
 	if (selectedAnswer === null) {
 		headerText = `What year was ${question.inductee.name} inducted into the Rock & Roll Hall of Fame?`;
-	}
-
-	if (selectedAnswer === question.correctAnswer) {
+	} else if (selectedAnswer === question.correctAnswer) {
 		headerText = "That's correct!";
-	}
-
-	if (selectedAnswer !== null && selectedAnswer !== question.correctAnswer) {
+	} else if (selectedAnswer !== null && selectedAnswer !== question.correctAnswer) {
 		headerText = "Sorry, that's incorrect";
 	}
 
