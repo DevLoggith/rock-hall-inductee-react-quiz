@@ -48,7 +48,7 @@ article > ul {
 }
 
 /* ── Answer Buttons ── */
-.answer-button {
+.answer-button, .next-button, .score-button, .play-button {
     width: 100%;
     padding: 0.75rem 0.5rem;
     font-size: 0.95rem;
@@ -74,4 +74,8 @@ article > ul {
 .answer-button.incorrect {
     background-color: #FF4545;
     border-color: #cc1f1f;
+}
+
+.next-button, .score-button, .play-button {
+    max-width: 200px;
 }

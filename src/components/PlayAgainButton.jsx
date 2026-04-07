@@ -1,5 +1,5 @@
 function PlayAgainButton({ onPlayAgainSelect }) {
-    return <button onClick={onPlayAgainSelect}>Play Again</button>
+    return <button className="play-button" onClick={onPlayAgainSelect}>Play Again</button>
 }
 
 export default PlayAgainButton;

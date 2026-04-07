@@ -1,5 +1,9 @@
 function NextButton({ onNextSelect }) {
-	return <button onClick={onNextSelect}>Next Question</button>;
+	return (
+		<button className="next-button" onClick={onNextSelect}>
+			Next Question
+		</button>
+	);
 }
 
 export default NextButton;
