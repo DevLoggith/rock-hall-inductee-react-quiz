@@ -60,8 +60,8 @@ function Game() {
 		return (
 			<main>
 				<h1 className="game-title">Rock & Roll Hall of Fame Inductee Trivia</h1>
-				<h2>{gameScoreText}</h2>
-				<p>{gameResponseMsg}</p>
+				<h2 className="score-text">{gameScoreText}</h2>
+				<p className="score-response">{gameResponseMsg}</p>
 				<PlayAgainButton onPlayAgainSelect={() => handlePlayAgain()} />
 			</main>
 		);
@@ -70,7 +70,7 @@ function Game() {
 		return (
 			<main>
 				<h1 className="game-title">Rock & Roll Hall of Fame Inductee Trivia</h1>
-				<p>
+				<p className="progress-tracker">
 					Question {questionsAnswered} of {TOTAL_QUESTIONS}
 				</p>
 				<QuestionCard

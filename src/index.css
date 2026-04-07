@@ -44,6 +44,10 @@ h3, h4 {
     text-wrap: balance;
 }
 
+p {
+    font-size: 1.1rem;
+}
+
 /* Inherit fonts for inputs and buttons */
 input, button,
 textarea, select {

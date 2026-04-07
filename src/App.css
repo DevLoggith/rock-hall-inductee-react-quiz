@@ -1,6 +1,7 @@
 /* ── Layout ── */
 body {
     background-color: #f0f0f0;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
 main {
@@ -8,18 +9,22 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem 1.5rem 2rem;
+    padding: 5rem 1.5rem 2rem;
     gap: 1rem;
 }
 
 /* ── Title ── */
 main > .game-title {
     max-width: 320px;
+    font-size: 2.5rem;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 /* ── "Question n of n" ── */
-main > p {
+main > .progress-tracker {
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
+    padding: 0.25rem;
 }
 
 /* ── Question Card ── */
@@ -34,7 +39,7 @@ main > p {
 }
 
 .question-card > h2 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: normal;
     margin-bottom: 2rem;
 }
@@ -53,11 +58,20 @@ main > p {
     gap: 0.75rem;
 }
 
+.score-text {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.score-response {
+    margin-bottom: 3rem;
+}
+
 /* ── Answer Buttons ── */
 .answer-button, .next-button, .score-button, .play-button {
     width: 100%;
     padding: 0.75rem 0.5rem;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     border: 1.5px solid #555;
     border-radius: 0.5rem;
     cursor: pointer;
