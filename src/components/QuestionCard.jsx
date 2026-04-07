@@ -43,7 +43,7 @@ function QuestionCard({ question, selectedAnswer, selectAnswer, correctAnswer })
 	}
 
 	return (
-		<article>
+		<article className="question-card">
 			<h2>{headerText}</h2>
 			{selectedAnswer ? <p>{responseText}</p> : null}
 			{selectedAnswer && priorNoms.length > 0 ? <p>{priorNomText}</p> : null}

@@ -23,25 +23,31 @@ main > p {
 }
 
 /* ── Question Card ── */
-article {
+.question-card {
     background-color: #e0e0e0;
     border-radius: 1rem;
     padding: 1.75rem 1.25rem;
     max-width: 380px;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    text-wrap: balance;
 }
 
-article > h2 {
-    font-size: 1rem;
+.question-card > h2 {
+    font-size: 1.25rem;
     font-weight: normal;
-    text-align: center;
-    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.question-card > p {
+    margin-bottom: 0.75rem;
+}
+.question-card > p:last-of-type {
+    margin-bottom: 1.5rem;
 }
 
 /* ── Answer Button Grid ── */
-article > ul {
+.question-card > ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
