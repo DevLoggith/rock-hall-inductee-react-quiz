@@ -92,6 +92,7 @@ main > .progress-tracker {
     border-radius: 0.5rem;
     cursor: pointer;
     background-color: #7b61ff;
+    color: #0c0c0c;
     transition: background-color 0.25s ease;
 }
 
