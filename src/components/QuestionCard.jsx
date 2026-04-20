@@ -30,13 +30,24 @@ function QuestionCard({ question, selectedAnswer, selectAnswer, correctAnswer })
 	});
 
 	let headerText;
-	const responseText = (
-		<>
-			<span className="artist-name">{question.inductee.name}</span> was inducted in{" "}
-			{question.correctAnswer} by{" "}
-			<span className="artist-name">{question.inductee.inductionPresenter}</span>
-		</>
-	);
+	let responseText;
+	if (question.inductee.inductionPresenter !== null) {
+		responseText = (
+			<>
+				<span className="artist-name">{question.inductee.name}</span> was inducted in{" "}
+				{question.correctAnswer} by{" "}
+				<span className="artist-name">{question.inductee.inductionPresenter}</span>
+			</>
+		);
+	} else {
+		responseText = (
+			<>
+				<span className="artist-name">{question.inductee.name}</span> was inducted in{" "}
+				{question.correctAnswer}
+			</>
+		);
+	}
+
 	const priorNoms = question.inductee.priorNominations;
 	const priorNomText = `Prior nominations were in ${priorNoms.length > 1 ? priorNoms.slice(0, -1).join(", ") + " and " + priorNoms.slice(-1) : priorNoms}`;
 
