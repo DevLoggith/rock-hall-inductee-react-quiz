@@ -112,7 +112,7 @@ function generateQuestion(inducteeArray, askedInductees = []) {
 
 	for (let i = 1; i < 4; i++) {
 		let randomYear;
-		while (answers.includes(randomYear) || randomYear === undefined) {
+		while (randomYear === undefined || answers.includes(randomYear)) {
 			randomYear = Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 		answers.push(randomYear);
