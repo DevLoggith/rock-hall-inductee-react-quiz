@@ -26,7 +26,7 @@ function Game() {
 	}
 
 	function handleNext() {
-		const question = generateQuestion(inductees);
+		const question = generateQuestion(inductees, askedInductees);
 		setCurrentQuestion(question);
 		setAskedInductees((prev) => [...prev, question.inductee.name]);
 		setSelectedAnswer(null);
@@ -99,18 +99,20 @@ function Game() {
 	}
 }
 
-function generateQuestion(inducteeArray) {
-	// TODO: pick only from inductees that are not also present in askedInductees
-	// https://github.com/DevLoggith/rock-hall-inductee-react-quiz/issues/16
-	const randomIndex = Math.floor(Math.random() * inducteeArray.length);
-	const inductee = inducteeArray[randomIndex];
+function generateQuestion(inducteeArray, askedInductees = []) {
+	let inductee;
+	while (inductee === undefined || askedInductees.some(askedInductee => askedInductee === inductee.name)) {
+		const randomIndex = Math.floor(Math.random() * inducteeArray.length);
+		inductee = inducteeArray[randomIndex];
+	}
+	
 	const answers = [inductee.inductionYear];
 	const min = Math.max(answers[0] - 10, 1986);
 	const max = Math.min(answers[0] + 10, 2025);
 
 	for (let i = 1; i < 4; i++) {
 		let randomYear;
-		while (answers.includes(randomYear) || randomYear === undefined) {
+		while (randomYear === undefined || answers.includes(randomYear)) {
 			randomYear = Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 		answers.push(randomYear);
