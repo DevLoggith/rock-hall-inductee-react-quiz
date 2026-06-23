@@ -1,7 +1,47 @@
+/* global variables */
+:root {
+    /* colors */
+    --hot-kiss: #ff4d4d;
+    --black-wash: #0c0c0c;
+    --dark-charcoal: #303030;
+    --grey-500: #d3d3d3;
+    --grey-600: #808080;
+    --medium-seashell: #f2f2f0;
+    --web-orange: #ffa500;
+    --slate-blue-500: #7b61ff;
+    --slate-blue-600: #5643b2;
+    --atomic-tangerine: #ff6b35;
+    --bright-mint: #00e5a0;
+    --hot-fuchsia: #ff3864;
+
+    /* core layout & typography */
+    --bg-main: var(--black-wash);
+    --bg-secondary: var(--dark-charcoal);
+
+    --text-main: var(--medium-seashell);
+    --text-title: var(--hot-kiss);
+    --text-highlight: var(--web-orange);
+
+    /* interactive components */
+    --btn-main-bg: var(--slate-blue-500);
+    --btn-main-hover-bg: var(--slate-blue-600);
+    --btn-main-text: var(--black-wash);
+    --btn-text-disabled: var(--grey-500);
+    
+    --btn-correct-text-disabled: var(--grey-600);
+
+    --btn-nav-bg: var(--atomic-tangerine);
+
+    /* app state & logic */
+    --state-correct: var(--bright-mint);
+    --state-incorrect: var(--hot-fuchsia);
+}
+
+
 /* ── Layout ── */
 body {
-    background-color: #0c0c0c;
-    color: #F2F2F0;
+    background-color: var(--bg-main);
+    color: var(--text-main);
     font-family: 'Barlow Condensed', sans-serif;
 }
 
@@ -19,7 +59,7 @@ main > .game-title {
     max-width: 320px;
     font-size: 2.5rem;
     font-family: 'Bebas Neue', sans-serif;
-    color: #ff4d4d;
+    color: var(--text-title);
 }
 
 /* ── "Question n of n" ── */
@@ -30,7 +70,7 @@ main > .progress-tracker {
 }
 
 .question-card {
-    background-color: #303030;
+    background-color: var(--bg-secondary);
     border-radius: 1rem;
     padding: 1.75rem 1.25rem;
     max-width: 380px;
@@ -46,17 +86,17 @@ main > .progress-tracker {
 }
 
 .correct-response {
-    color: #00e5a0;
+    color: var(--state-correct);
     font-size: 2rem;
 }
 
 .incorrect-response {
-    color: #ff3864;
+    color: var(--state-incorrect);
     font-size: 1.75rem;
 }
 
 .artist-name {
-    color: #ffa500;
+    color: var(--text-highlight);
 }
 
 .question-card > p {
@@ -91,31 +131,31 @@ main > .progress-tracker {
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    background-color: #7b61ff;
-    color: #0c0c0c;
+    background-color: var(--btn-main-bg);
+    color: var(--btn-main-text);
     transition: background-color 0.25s ease;
 }
 
 .answer-button:hover:not(:disabled) {
-    background-color: rgba(123, 97, 255, 0.5);
+    background-color: var(--btn-main-hover-bg);
 }
 
 .answer-button:disabled {
     cursor: default;
-    color: lightgrey;
+    color: var(--btn-text-disabled);
 }
 
 .answer-button.correct {
-    background-color: #00e5a0;
-    color: grey;
+    background-color: var(--state-correct);
+    color: var(--btn-correct-text-disabled);
 }
 
 .answer-button.incorrect {
-    background-color: #ff3864;
+    background-color: var(--state-incorrect);
 }
 
 /* TODO: change color of "view score" button for better signaling of "game over" */
 .next-button, .score-button, .play-button {
     max-width: 200px;
-    background-color: #ff6b35;
+    background-color: var(--btn-nav-bg);
 }
