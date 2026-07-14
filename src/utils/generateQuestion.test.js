@@ -31,4 +31,10 @@ describe('generateQuestion', () => {
 
         expect(isUnique).toBe(true);
     });
+
+    it('includes the correct answer as one of the choices', () => {
+        const question = generateQuestion(mockInductees, []);
+
+        expect(question.answers).toContain(question.correctAnswer);
+    });
 });
