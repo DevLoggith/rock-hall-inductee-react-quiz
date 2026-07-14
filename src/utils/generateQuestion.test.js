@@ -21,6 +21,14 @@ describe('generateQuestion', () => {
         const prevQuestions = ['Test Artist A', 'Test Artist D'];
         const question = generateQuestion(mockInductees, prevQuestions);
 
-        expect(prevQuestions).not.toContain(question.name);
+        expect(prevQuestions).not.toContain(question.inductee.name);
+    });
+
+    it('generates four unique answer values', () => {
+        const question = generateQuestion(mockInductees, []);
+        const answers = question.answers
+        const isUnique = new Set(answers).size === answers.length
+
+        expect(isUnique).toBe(true);
     });
 });
