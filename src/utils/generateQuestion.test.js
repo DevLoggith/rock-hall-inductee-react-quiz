@@ -16,4 +16,11 @@ describe('generateQuestion', () => {
         expect(question).toHaveProperty('answers');
         expect(question).toHaveProperty('correctAnswer');
     });
+
+    it('generates a unique question each time', () => {
+        const prevQuestions = ['Test Artist A', 'Test Artist D'];
+        const question = generateQuestion(mockInductees, prevQuestions);
+
+        expect(prevQuestions).not.toContain(question.name);
+    });
 });
