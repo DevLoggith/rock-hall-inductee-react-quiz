@@ -113,6 +113,7 @@ main > .progress-tracker {
     gap: 0.75rem;
 }
 
+/* TODO: refactor margins for score screen to push down & be uniform */
 .score-text {
     font-size: 1.5rem;
     font-weight: normal;

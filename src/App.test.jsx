@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, vi } from "vitest";
 
 import App from "./App";
 
@@ -22,6 +21,13 @@ const { mockQuestion } = vi.hoisted(() => {
 vi.mock("./utils/generateQuestion", () => ({
 	generateQuestion: vi.fn(() => mockQuestion),
 }));
+
+// helper for "displays final score" test
+async function answerAndAdvance(user, buttonText) {
+	const button = screen.getByText(buttonText);
+	await user.click(button);
+	await user.click(screen.getByText("Next Question"));
+}
 
 describe("App", () => {
 	it("renders the correct answer as correct", async () => {
@@ -77,6 +83,18 @@ describe("App", () => {
 	it("displays the final score", async () => {
 		render(<App />);
 
-		// TODO: create helper function loop to click through game until last question & "view score" button
+		const user = userEvent.setup();
+
+		// TODO: refactor to a 'while' loop w/queryByText instead of hard coded # of iterations
+		for (let i = 1; i < 5; i++) { await answerAndAdvance(user, "1992") }
+		await user.click(screen.getByText("1992"));
+
+		expect(screen.getByText("View Score")).toBeInTheDocument();
+
+		await user.click(screen.getByText("View Score"));
+
+		expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
+			/You got.*questions right/,
+		);
 	});
 });
