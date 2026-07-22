@@ -27,11 +27,51 @@ describe("QuestionCard", () => {
 
         await user.click(correctButton);
 
-        const heading = screen.getByRole("heading", { level: 2 });
-        const headingSpan = within(heading).getByText("That's correct!")
-        
+		const heading = screen.getByRole("heading", { level: 2 });
 
-        expect(headingSpan).toBeInTheDocument();
-        expect(correctButton).toHaveClass("correct");
-    });
+		expect(heading).toHaveTextContent("That's correct!");
+		expect(correctButton).toHaveClass("correct");
+	});
+
+	it("renders the incorrect answer as incorrect", async () => {
+		render(<App />);
+
+		const user = userEvent.setup();
+		const incorrectButton = screen.getByText("2006");
+
+		await user.click(incorrectButton);
+
+		const heading = screen.getByRole("heading", { level: 2 });
+
+		expect(heading).toHaveTextContent("Sorry, that's incorrect");
+		expect(incorrectButton).toHaveClass("incorrect");
+	});
+
+	it("resets question state", async () => {
+		render(<App />);
+
+		const user = userEvent.setup();
+		const answerButton = screen.getByText("1997");
+
+		await user.click(answerButton);
+
+		const nextButton = screen.getByText("Next Question");
+
+		await user.click(nextButton);
+		const answerButtons = screen.getAllByRole("button");
+
+		expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
+			/What year was.*inducted into the Rock & Roll Hall of Fame\?/,
+		);
+		answerButtons.forEach((button) => {
+			expect(button).not.toHaveClass("correct");
+			expect(button).not.toHaveClass("incorrect");
+		});
+	});
+
+	it("displays the final score", async () => {
+		render(<App />);
+
+		// TODO: create helper function loop to click through game until last question & "view score" button
+	});
 });
