@@ -22,13 +22,6 @@ vi.mock("./utils/generateQuestion", () => ({
 	generateQuestion: vi.fn(() => mockQuestion),
 }));
 
-// helper for "displays final score" test
-async function answerAndAdvance(user, buttonText) {
-	const button = screen.getByText(buttonText);
-	await user.click(button);
-	await user.click(screen.getByText("Next Question"));
-}
-
 describe("App", () => {
 	it("renders the correct answer as correct", async () => {
 		render(<App />);
@@ -85,11 +78,9 @@ describe("App", () => {
 
 		const user = userEvent.setup();
 
-		// TODO: refactor to a 'while' loop w/queryByText instead of hard coded # of iterations
-		for (let i = 1; i < 5; i++) { await answerAndAdvance(user, "1992") }
-		await user.click(screen.getByText("1992"));
-
-		expect(screen.getByText("View Score")).toBeInTheDocument();
+		while (screen.queryByText("View Score") === null) {
+			await answerAndAdvance(user, "1992");
+		}
 
 		await user.click(screen.getByText("View Score"));
 
@@ -98,3 +89,15 @@ describe("App", () => {
 		);
 	});
 });
+
+
+// helper for "displays final score" test
+async function answerAndAdvance(user, buttonText) {
+	const answerButton = screen.getByText(buttonText);
+
+	await user.click(answerButton);
+
+	screen.queryByText("Next Question")
+		? await user.click(screen.getByText("Next Question"))
+		: expect(screen.getByText("View Score")).toBeInTheDocument();
+}
