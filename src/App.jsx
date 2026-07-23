@@ -5,6 +5,7 @@ import QuestionCard from "./components/QuestionCard.jsx";
 import NextButton from "./components/NextButton.jsx";
 import ViewScoreButton from "./components/ViewScoreButton.jsx";
 import PlayAgainButton from "./components/PlayAgainButton.jsx";
+import ScoreScreen from "./components/ScoreScreen.jsx";
 import "./App.css";
 
 function Game() {
@@ -48,31 +49,14 @@ function Game() {
 
 	if (showScore) {
 		// score results screen
-		const scorePercentage = (correctAnswers / TOTAL_QUESTIONS) * 100;
-		const gameScoreText = (
-			<>
-				You got{" "}
-				<span className="artist-name">
-					{correctAnswers} out of {TOTAL_QUESTIONS}
-				</span>{" "}
-				questions right
-			</>
-		);
-		let gameResponseMsg =
-			"The Rock Hall's history runs deep, but now you know a little more of it.";
-
-		if (scorePercentage >= 80) {
-			gameResponseMsg = "Front row knowledge! You've earned your place in the crowd.";
-		} else if (scorePercentage >= 60) {
-			gameResponseMsg = "You've got the foundation, just a few more deep cuts to learn.";
-		}
-
 		return (
 			<main>
 				<h1 className="game-title">Rock & Roll Hall of Fame Inductee Trivia</h1>
-				<h2 className="score-text">{gameScoreText}</h2>
-				<p className="score-response">{gameResponseMsg}</p>
-				<PlayAgainButton onPlayAgainSelect={() => handlePlayAgain()} />
+				<ScoreScreen
+					playAgain={() => handlePlayAgain()}
+					correctAnswers={correctAnswers}
+					totalQuestions={TOTAL_QUESTIONS}
+				/>
 			</main>
 		);
 	} else {
@@ -99,6 +83,5 @@ function Game() {
 		);
 	}
 }
-
 
 export default Game;

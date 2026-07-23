@@ -2,7 +2,12 @@ import { describe, it, expect } from "vitest";
 import { generateQuestion } from "./generateQuestion";
 
 const mockInductees = [
-	{ name: "Test Artist A", inductionYear: 2000, priorNominations: [], inductionPresenter: null },
+	{ 
+		name: "Test Artist A",
+		inductionYear: 2000,
+		priorNominations: [],
+		inductionPresenter: null
+	},
 	{
 		name: "Test Artist B",
 		inductionYear: 2001,
