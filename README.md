@@ -1,4 +1,5 @@
 # Rock & Roll Hall of Fame Inductee Trivia
+
 _[Try it here](https://devloggith.github.io/rock-hall-inductee-react-quiz/)_
 
 A trivia game that quizzes you about the Rock & Roll Hall of Fame inductees from over the years. It
@@ -13,4 +14,5 @@ Built with React + Vite, I wanted to create a fun project to learn the framework
 - Lists & keys for rendering arrays of data with `.map()`
 
 ## Data Sources
+
 Inductee data compiled from the Wikipedia article "[List of Rock and Roll Hall of Fame inductees](https://en.wikipedia.org/wiki/List_of_Rock_and_Roll_Hall_of_Fame_inductees)" (CC BY-SA 4.0)
