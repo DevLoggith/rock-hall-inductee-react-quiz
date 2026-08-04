@@ -3,18 +3,16 @@ import userEvent from "@testing-library/user-event";
 
 import App from "./App";
 
-const { mockQuestion } = vi.hoisted(() => {
+const mockQuestion = vi.hoisted(() => {
 	return {
-		mockQuestion: {
-			inductee: {
-				name: "Test Artist A",
-				inductionYear: 1988,
-				priorNominations: [1987],
-				inductionPresenter: "Little Richard",
-			},
-			answers: [1992, 2006, 1988, 1997],
-			correctAnswer: 1988,
+		inductee: {
+			name: "Test Artist A",
+			inductionYear: 1988,
+			priorNominations: [1987],
+			inductionPresenter: "Little Richard",
 		},
+		answers: [1992, 2006, 1988, 1997],
+		correctAnswer: 1988,
 	};
 });
 
@@ -89,7 +87,6 @@ describe("App", () => {
 		);
 	});
 });
-
 
 // helper for "displays final score" test
 async function answerAndAdvance(user, buttonText) {
