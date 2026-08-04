@@ -27,7 +27,7 @@ function ScoreScreen({ correctAnswers, totalQuestions, playAgain }) {
             <p className="score-response">{gameResponseMsg}</p>
             <PlayAgainButton onPlayAgainSelect={() => playAgain()} />
         </section>
-	);
+    );
 }
 
 export default ScoreScreen;

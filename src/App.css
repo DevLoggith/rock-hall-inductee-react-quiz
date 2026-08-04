@@ -27,7 +27,7 @@
     --btn-main-hover-bg: var(--slate-blue-600);
     --btn-main-text: var(--black-wash);
     --btn-text-disabled: var(--grey-500);
-    
+
     --btn-correct-text-disabled: var(--grey-600);
 
     --btn-nav-bg: var(--atomic-tangerine);
@@ -37,12 +37,11 @@
     --state-incorrect: var(--hot-fuchsia);
 }
 
-
 /* ── Layout ── */
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
 }
 
 main {
@@ -58,7 +57,7 @@ main {
 main > .game-title {
     max-width: 320px;
     font-size: 2.5rem;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Bebas Neue", sans-serif;
     color: var(--text-title);
 }
 
@@ -124,7 +123,10 @@ main > .progress-tracker {
     margin-bottom: 3rem;
 }
 
-.answer-button, .next-button, .score-button, .play-button {
+.answer-button,
+.next-button,
+.score-button,
+.play-button {
     width: 100%;
     padding: 0.75rem 0.5rem;
     font-size: 1.1rem;
@@ -156,7 +158,9 @@ main > .progress-tracker {
 }
 
 /* TODO: change color of "view score" button for better signaling of "game over" */
-.next-button, .score-button, .play-button {
+.next-button,
+.score-button,
+.play-button {
     max-width: 200px;
     background-color: var(--btn-nav-bg);
 }
